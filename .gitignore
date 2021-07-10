@@ -1,0 +1,9 @@
+# Files generatd by Hugo
+/public
+/resources
+hugo_stats.json
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
