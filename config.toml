@@ -1,4 +1,52 @@
-baseURL = "http://insightsdude.uk/"
-languageCode = "en-gb"
+baseurl = "https://insightsdude.uk/"
 title = "insightsdude.uk"
+languageCode = "en-GB"
 theme = "mainroad"
+paginate = "10"
+
+disqusShortname = "insightsdude-uk"
+googleAnalytics = "UA-140855486-1"
+
+[permalinks]
+  post = "/:year/:month/:title/"
+
+[menu]
+	[[menu.main]]	
+		identifier = "home"
+		name = "Home"
+		url = "/"
+		weight = 10
+
+[Author]
+  name = "Artis Lismanis"
+  bio = "Analytics professional by day, data geek by night."
+  avatar = "img/avatar.png"
+
+[Params]
+  description = "a personal journey towards making data easy and frictionless"
+  opengraph = true
+  twitter_cards = false
+  readmore = false
+  authorbox = true
+  pager = true
+  post_meta = ["date", "categories"]
+  
+[Params.logo]
+  subtitle = "a personal journey towards making data easy and frictionless"
+
+[Params.sidebar]
+  home = "right"
+  list = "right"
+  single = "right"
+  widgets = ["search", "recent", "categories", "taglist", "social"]
+
+[Params.widgets]
+  recent_num = 5 
+
+[Params.style.vars]
+	highlightColor = "#0585C8"
+	
+[Params.widgets.social]
+  linkedin = "artislismanis"
+  github = "artislismanis"
+  twitter = "artislismanis"
