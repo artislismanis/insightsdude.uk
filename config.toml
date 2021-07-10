@@ -1,0 +1,4 @@
+baseURL = "http://insightsdude.uk/"
+languageCode = "en-gb"
+title = "insightsdude.uk"
+theme = "mainroad"
