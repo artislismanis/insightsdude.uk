@@ -1,10 +1,10 @@
 ---
 title: About Me
 authorbox: false
+comments: false
 menu:
  main:
   weight: 100
-disable_comments: true
 ---
 
 Hello and welcome to my blog! My name is Artis Lismanis and I’m a data professional based in the United Kingdom. I currently work as Head of Data Development at Cox Automotive Europe. What gets me out of bed in the morning is creating pragmatic solutions to enable the right data, in the right form, at the right time, in the right context.  As I see it the value from data is unlocked only when we act on the insights generated, and this, in turn, can only happen effectively when data is seamless. This is a record of my personal journey towards this ideal, making data so easy and frictionless it is barely noticeable. 
