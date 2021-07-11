@@ -6,6 +6,7 @@ paginate = "10"
 enableEmoji = "true"
 disqusShortname = "insightsdude-uk"
 googleAnalytics = "UA-140855486-1"
+enableRobotsTXT = true
 
 [permalinks]
   posts = "/:year/:month/:title/"
