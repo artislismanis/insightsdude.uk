@@ -9,7 +9,7 @@ disqusShortname = "insightsdude-uk"
 googleAnalytics = "UA-140855486-1"
 
 [permalinks]
-  post = "/:year/:month/:title/"
+  posts = "/:year/:month/:title/"
 
 [menu]
 	[[menu.main]]	
@@ -51,3 +51,8 @@ googleAnalytics = "UA-140855486-1"
   linkedin = "artislismanis"
   github = "artislismanis"
   twitter = "artislismanis"
+
+#[[Params.widgets.social.custom]]
+#  title = "Youtube"
+#  url = "https://www.youtube.com/channel/UC_mlB2W8nOL3sYoFAsekzRQ"
+#  icon = "svg/youtube.svg"
