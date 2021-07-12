@@ -4,12 +4,12 @@ languageCode = "en-GB"
 theme = "mainroad"
 paginate = "10"
 enableEmoji = "true"
-
 disqusShortname = "insightsdude-uk"
 googleAnalytics = "UA-140855486-1"
+enableRobotsTXT = true
 
 [permalinks]
-  post = "/:year/:month/:title/"
+  posts = "/:year/:month/:title/"
 
 [menu]
 	[[menu.main]]	
@@ -18,9 +18,19 @@ googleAnalytics = "UA-140855486-1"
 		url = "/"
 		weight = 10
 
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+    useSessionStorage = true
+  [privacy.twitter]
+    enableDNT = false
+  [privacy.youtube]
+    privacyEnhanced = true
+
 [Author]
   name = "Artis Lismanis"
-  bio = "Analytics professional by day, data geek by night."
+  bio = "I'm an analytics professional by day and a data geek by night. I'm passionate about finding practical solutions to unlocking value from data both professionally and outside of work ."
   avatar = "img/avatar.png"
 
 [Params]
@@ -51,3 +61,8 @@ googleAnalytics = "UA-140855486-1"
   linkedin = "artislismanis"
   github = "artislismanis"
   twitter = "artislismanis"
+
+#[[Params.widgets.social.custom]]
+#  title = "Youtube"
+#  url = "https://www.youtube.com/channel/UC_mlB2W8nOL3sYoFAsekzRQ"
+#  icon = "svg/youtube.svg"
