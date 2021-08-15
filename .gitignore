@@ -7,3 +7,12 @@ hugo_stats.json
 hugo.exe
 hugo.darwin
 hugo.linux
+
+#IDE
+# VS Code files for those working on multiple tools
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
