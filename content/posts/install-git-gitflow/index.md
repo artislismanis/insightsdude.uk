@@ -1,7 +1,7 @@
 ---
 title: "Setting up Git and GitFlow"
 date: 2021-08-15
-draft: true
+draft: false
 categories:
   - "Development"
 tags:
