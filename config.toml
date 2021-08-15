@@ -30,7 +30,7 @@ enableRobotsTXT = true
 
 [Author]
   name = "Artis Lismanis"
-  bio = "I'm an analytics professional by day and a data geek by night. I'm passionate about finding practical solutions to unlocking value from data both professionally and outside of work ."
+  bio = "I'm an analytics professional by day and a data geek by night. I'm passionate about finding practical solutions to unlocking value from data both professionally and outside of work."
   avatar = "img/avatar.png"
 
 [Params]
