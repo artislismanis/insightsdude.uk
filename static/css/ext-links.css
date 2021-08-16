@@ -1,0 +1,5 @@
+.content a[target="_blank"]:after {
+    content : url("/img/ext-link.png");
+    padding-left: 2px;
+    text-align: center
+ }
