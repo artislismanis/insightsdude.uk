@@ -7,6 +7,10 @@ categories:
 tags:
   - "howto"
 toc: false
+#customCSS:  
+#  - "css/asciinema-player.css"
+#customJS: 
+#  - "js/asciinema-player.js"
 ---
 
 
