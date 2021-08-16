@@ -8,7 +8,7 @@ tags:
   - "howto"
   - "git"
   - "gitflow"
-toc: true
+toc: false
 ---
 
 On those rare occasions when I get a chance to code I tend to work on Ubuntu based virtual environments - VirtualBox VMs and more recently WSL. It is also pretty much a given that I'd need to interact with different Git hosting services like GutHub and BitBucket, and it usually takes quite a bit of tinkering to get everything set up and working smoothly with all the various accounts. These are my steps to to get the Git and GitFlow installed and configured in a jiffy. :rocket:
@@ -16,6 +16,8 @@ On those rare occasions when I get a chance to code I tend to work on Ubuntu bas
 <!--more-->
 
 This how-to assumes you have a Debian-based Linux distribution installed and ready to go and that you are logged in as a non-root user with sudo permissions.
+
+{{< toc >}}
 
 ## For the impatient {#impatient}
 

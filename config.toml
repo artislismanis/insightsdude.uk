@@ -41,6 +41,8 @@ enableRobotsTXT = true
   authorbox = true
   pager = true
   post_meta = ["date", "categories"]
+  customCSS = ["css/toc.css"]
+  #customJS = ["js/custom.js"]
   
 [Params.logo]
   subtitle = "a personal journey towards making data easy and frictionless"
