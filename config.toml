@@ -31,7 +31,7 @@ enableRobotsTXT = true
 [Author]
   name = "Artis Lismanis"
   bio = "I'm an analytics professional by day and a data geek by night. I'm passionate about finding practical solutions to unlocking value from data both professionally and outside of work."
-  avatar = "img/avatar.png"
+  avatar = "img/profilepic.jpg"
 
 [Params]
   description = "a personal journey towards making data easy and frictionless"
@@ -41,7 +41,7 @@ enableRobotsTXT = true
   authorbox = true
   pager = true
   post_meta = ["date", "categories"]
-  customCSS = ["css/toc.css"]
+  customCSS = ["css/toc.css", "css/ext-links.css"]
   #customJS = ["js/custom.js"]
   
 [Params.logo]
