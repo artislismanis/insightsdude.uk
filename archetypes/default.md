@@ -8,9 +8,9 @@ tags:
   - "howto"
 toc: false
 #customCSS:  
-#  - "css/asciinema-player.css"
+#  - "/css/asciinema-player.css"
 #customJS: 
-#  - "js/asciinema-player.js"
+#  - "/js/asciinema-player.js"
 ---
 
 
