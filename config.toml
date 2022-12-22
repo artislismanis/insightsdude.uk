@@ -34,7 +34,7 @@ enableRobotsTXT = true
   avatar = "img/profilepic.jpg"
 
 [Params]
-  description = "a personal journey towards making data easy and frictionless"
+  description = "making data easy and frictionless bit by bit"
   opengraph = true
   twitter_cards = false
   readmore = false
@@ -45,7 +45,7 @@ enableRobotsTXT = true
   #customJS = ["js/custom.js"]
   
 [Params.logo]
-  subtitle = "a personal journey towards making data easy and frictionless"
+  subtitle = "making data easy and frictionless bit by bit"
 
 [Params.sidebar]
   home = "right"
@@ -57,7 +57,7 @@ enableRobotsTXT = true
   recent_num = 5 
 
 [Params.style.vars]
-	highlightColor = "#0585C8"
+	highlightColor = "#00B050"
 	
 [Params.widgets.social]
   linkedin = "artislismanis"
