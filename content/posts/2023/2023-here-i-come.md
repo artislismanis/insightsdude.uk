@@ -1,7 +1,7 @@
 ---
 title: "2023 here I come!"
 date: 2023-01-06
-draft: true
+draft: false
 categories:
   - "Miscellaneous"
 tags:
