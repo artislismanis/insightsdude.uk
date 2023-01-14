@@ -5,7 +5,7 @@ theme = "mainroad"
 paginate = "10"
 enableEmoji = "true"
 disqusShortname = "insightsdude-uk"
-googleAnalytics = "UA-140855486-1"
+googleAnalytics = "G-WP2G2BXEVK"
 enableRobotsTXT = true
 
 [permalinks]
@@ -37,7 +37,7 @@ enableRobotsTXT = true
   description = "making data easy and frictionless bit by bit"
   opengraph = true
   twitter_cards = false
-  readmore = false
+  readmore = true
   authorbox = true
   pager = true
   post_meta = ["date", "categories"]
