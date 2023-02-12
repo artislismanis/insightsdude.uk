@@ -61,7 +61,7 @@ If your favourite Linux distribution does not have a WSL specific image, you wil
 
 Note that there are additional flavours of Linux available for WSL via Microsoft Store or through several different community maintained projects on GitHub. You can use any of these as a starting point for your customisations. If you are familiar with Docker, you can also create WSL compatible images form a Docker environment by exporting it via `docker export` command.
 
-There are only two reasons not to use a readily available and supported WSL distributions: a) to have full control over choosing specific version of OS and tools installed and b) irresistible urge to tinker. :bowtie:
+There are only two reasons not to use a readily available and supported WSL distributions: a) to have full control over choosing specific version of OS and tools installed and b) irresistible urge to tinker. :stuck_out_tongue_winking_eye:
 
 ## Create WSL environment
 
@@ -218,8 +218,8 @@ sudo apt-get update
 Once you have fully set up your environment and tweaked it to your liking you can export it as a re-usable image.
 
 ```powershell
-# Save your tweaked image for easy re-use                                                   
-wsl.exe --export UbuntuJammyExample C:\WSL\images\UbuntuJammyExample.tar  
+# Save your tweaked image for easy re-use
+wsl.exe --export UbuntuJammyExample C:\WSL\images\UbuntuJammyExample.tar
 ```
 
 My own preference is to fully script creation of my environments and treat them as throwaway. This means that every time I create an environment, I use the most current and up-to date OS and tools. However, there are plenty of scenarios where you might need keep your software locked to specific versions and approach above is perfect for locking in your requirements and sharing WSL environments with others.
@@ -229,7 +229,7 @@ You can now import the exported image as a new environment alongside the one we 
 ```powershell
 # You can now easily re-import this environment as needed
 # Actually you can create as many environments as you need
-# using the same image, just give them different names                                                  
+# using the same image, just give them different names
 wsl --import UbuntuJammyExample01 C:\WSL\environments\UbuntuJammyExample01 C:\WSL\images\UbuntuJammyExample.tar   
 
  # Did it work?    
