@@ -1,6 +1,6 @@
 ---
 title: "WSL2: CentOS Stream Image Prep"
-date: 2023-01-30T00:00:20
+date: 2023-02-12T00:00:20
 draft: false
 categories:
   - "Development"

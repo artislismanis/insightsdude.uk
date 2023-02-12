@@ -1,6 +1,6 @@
 ---
 title: "WSL2: Fedora Image Prep"
-date: 2023-01-30T00:00:30
+date: 2023-02-12T00:00:30
 draft: false
 categories:
   - "Development"
