@@ -4,9 +4,12 @@
  * Single source of truth for the theme:
  *   - Named exports below: build-level constants shared across the build
  *     (Eleventy, Vite, PostCSS, tests) — so a value lives in exactly one place.
- *   - Default export below: *content overrides* (colors, social links, footer,
- *     analytics, etc.). Top-level keys are validated against the active theme's
- *     defaults (`theme.json#config`) at build time, so a typo fails fast.
+ *   - Default export below: *presentation overrides* (colours, typography,
+ *     footer format, toggles). Top-level keys are validated against the active
+ *     theme's defaults (`theme.json#config`) at build time, so a typo fails fast.
+ *
+ * Theme-agnostic *data* (social, analytics, comments, branding) is NOT here —
+ * it lives in `content/_data/site.mjs` (the framework site-data contract).
  *
  * This file lives at the project root — deliberately NOT in `content/_data` —
  * so it is read only once by the themer plugin. A `theme.*` file inside the
@@ -69,7 +72,7 @@ export const OUTPUT_DIR = '_site';
  */
 
 /**
- * Content overrides for the active theme.
+ * Presentation overrides for the active theme.
  *
  * Only include the values you want to change — anything you omit falls back to
  * the theme's defaults declared in its `theme.json`. Top-level keys are
@@ -80,8 +83,8 @@ export const OUTPUT_DIR = '_site';
  * `defineThemeConfig` is an identity helper whose only purpose is to give the
  * editor `ThemeUserConfig` auto-completion via JSDoc.
  *
- * @see node_modules/@eleventy-plugin-themer/theme-base/theme.json
- *      for all the keys and shapes the active theme supports.
+ * @see node_modules/eleventy-theme-aurora/theme.json
+ *      for all the presentation keys and shapes the active theme supports.
  */
 export default defineThemeConfig({
 	// --- Theme toggle ---------------------------------------------------------
@@ -93,32 +96,19 @@ export default defineThemeConfig({
 		showToggle: true,
 	},
 
-	// --- Social links ---------------------------------------------------------
-	// Each entry is rendered via the `socialUrl()` filter, which validates the
-	// URL protocol (only http/https/mailto/tel/relative are allowed).
-	social: [
-		{
-			platform: 'github',
-			url: 'https://github.com/artislismanis',
-			label: 'GitHub',
-		},
-		{
-			platform: 'rss',
-			url: '/feed.xml',
-			label: 'RSS feed',
-		},
-	],
-
-	// --- Footer ---------------------------------------------------------------
+	// --- Footer (presentation) ------------------------------------------------
+	// `{year}` and `{site.title}` are interpolated by the theme's
+	// footer/copyright.njk partial. The footer's *data* — start year and
+	// repository URL — lives in content/_data/site.mjs, not here.
 	footer: {
-		copyright: ' © {year} Eleventy Starter',
-		startYear: 2024,
-		showPoweredBy: true,
-		showGitSha: true,
-		gitHubRepo: 'https://github.com/artislismanis/eleventy-starter',
+		copyright: ' © {year} {site.title}',
 	},
 
 	// --- Other commonly-overridden sections (uncomment to use) ---------------
+	//
+	// Theme-agnostic *data* (social links, analytics IDs, comments, branding)
+	// now lives in content/_data/site.mjs. The sections below are presentation
+	// and stay theme-side.
 	//
 	// colors: {
 	//   light: { primary: '#172c51', accent: '#ca7033' },
@@ -128,11 +118,6 @@ export default defineThemeConfig({
 	// typography: {
 	//   fontFamily: 'system-ui, sans-serif',
 	//   fontFamilyHeading: 'inherit',
-	// },
-	//
-	// analytics: {
-	//   googleAnalytics: '',  // e.g. 'G-XXXXXXXXXX'
-	//   plausible: '',
 	// },
 	//
 	// codeHighlighting: {

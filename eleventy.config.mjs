@@ -10,7 +10,7 @@ import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 import { createThemerProject } from '@eleventy-plugin-themer/core';
 import { eleventyPluginThemerVite } from '@eleventy-plugin-themer/build-vite';
 
-import siteData from './content/_data/site.js';
+import siteData from './content/_data/site.mjs';
 import { THEME_NAME, INPUT_DIR, OUTPUT_DIR } from './theme.config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
