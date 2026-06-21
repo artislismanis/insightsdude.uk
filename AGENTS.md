@@ -36,6 +36,25 @@ npm run deploy:force  # deploy from any branch
 
 ## Integration patterns
 
+### Theme (aurora) dependency + local iteration
+
+`eleventy-theme-aurora` is consumed as a **GitHub release tarball** pinned to a tag
+(`package.json` → `.../archive/refs/tags/vX.Y.Z.tar.gz`), not the npm registry and
+not a `file:` path. Clean installs (CI included) fetch it over plain HTTPS; the
+committed `package-lock.json` integrity-pins the exact tarball.
+
+To **iterate on aurora locally** (the override→promote workflow), symlink the
+sibling checkout over the installed copy:
+
+```bash
+cd ../theme-aurora && npm link            # once, registers the global link
+cd ../insightsdude.uk && npm link eleventy-theme-aurora
+```
+
+Re-run `npm link eleventy-theme-aurora` after any `npm install` (install restores
+the tarball copy). To ship aurora changes: tag a new aurora release and bump the
+tag in `package.json`.
+
 ### Theme configuration
 
 User-facing theme config lives in the default export of `theme.config.mjs` (project root, **not** `content/_data` — a `theme.*` file in the Eleventy data dir would be auto-loaded as a second `theme` global and duplicate array keys like social links). The plugin validates it against the theme's declared schema — unknown top-level keys throw. Inner shapes are unconstrained, so themes can evolve their config without breaking the starter.
