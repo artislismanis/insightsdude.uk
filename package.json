@@ -38,7 +38,7 @@
 	},
 	"homepage": "https://github.com/artislismanis/eleventy-starter#readme",
 	"engines": {
-		"node": ">=22"
+		"node": ">=24"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^3.1.2",
@@ -49,9 +49,9 @@
 		"@11ty/eleventy-plugin-vite": "^7.0.0",
 		"@aws-sdk/client-amplify": "^3.958.0",
 		"@aws-sdk/client-s3": "^3.958.0",
-		"@eleventy-plugin-themer/build-vite": "^0.3.0",
-		"@eleventy-plugin-themer/core": "^0.1.0",
-		"eleventy-theme-aurora": "file:../theme-aurora",
+		"@eleventy-plugin-themer/build-vite": "^0.4.0",
+		"@eleventy-plugin-themer/core": "^0.4.0",
+		"eleventy-theme-aurora": "https://github.com/artislismanis/eleventy-theme-aurora/archive/refs/tags/v0.2.0.tar.gz",
 		"cross-env": "^10.0.0",
 		"cssnano": "^7.1.2",
 		"del-cli": "^7.0.0",

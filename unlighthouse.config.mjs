@@ -1,16 +1,29 @@
 import os from 'os';
 import path from 'path';
-import { readdirSync } from 'fs';
+import { existsSync, readdirSync } from 'fs';
 
-const puppeteerChromeDir = path.join(os.homedir(), '.cache/puppeteer/chrome');
-const chromeVersions = readdirSync(puppeteerChromeDir);
-const chromePath = path.join(
-	puppeteerChromeDir,
-	chromeVersions[0],
-	'chrome-linux64/chrome',
-);
+// Resolve the puppeteer-managed Chrome, if one is installed. Returns undefined
+// when the cache is missing so unlighthouse falls back to its own resolution
+// (system Chrome) instead of crashing on a stale/empty cache dir.
+function resolvePuppeteerChrome() {
+	const chromeDir = path.join(os.homedir(), '.cache/puppeteer/chrome');
+	if (!existsSync(chromeDir)) return undefined;
 
-console.log('Using Chrome at:', chromePath);
+	// Newest install last: directory names sort lexically by version-ish prefix.
+	const versions = readdirSync(chromeDir).sort();
+	for (const version of versions.reverse()) {
+		const candidate = path.join(chromeDir, version, 'chrome-linux64/chrome');
+		if (existsSync(candidate)) return candidate;
+	}
+	return undefined;
+}
+
+const chromePath = resolvePuppeteerChrome();
+if (chromePath) {
+	console.log('Using Chrome at:', chromePath);
+} else {
+	console.log('No puppeteer Chrome found — falling back to system Chrome.');
+}
 
 export default {
 	outputPath: '.unlighthouse',
@@ -19,10 +32,12 @@ export default {
 		throttle: false, // disable CPU/network throttling for faster local runs
 	},
 	debug: true,
-	puppeteerOptions: {
-		executablePath: chromePath,
-	},
-	chrome: {
-		useSystem: false,
-	},
+	// Use the puppeteer-managed binary when present; otherwise let unlighthouse
+	// find a system Chrome on its own.
+	...(chromePath
+		? {
+				puppeteerOptions: { executablePath: chromePath },
+				chrome: { useSystem: false },
+			}
+		: {}),
 };
