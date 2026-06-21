@@ -51,7 +51,7 @@
 		"@aws-sdk/client-s3": "^3.958.0",
 		"@eleventy-plugin-themer/build-vite": "^0.4.0",
 		"@eleventy-plugin-themer/core": "^0.4.0",
-		"eleventy-theme-aurora": "https://github.com/artislismanis/eleventy-theme-aurora/archive/refs/tags/v0.2.0.tar.gz",
+		"eleventy-theme-aurora": "https://github.com/artislismanis/eleventy-theme-aurora/archive/refs/tags/v0.2.1.tar.gz",
 		"cross-env": "^10.0.0",
 		"cssnano": "^7.1.2",
 		"del-cli": "^7.0.0",
