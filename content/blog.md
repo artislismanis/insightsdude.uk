@@ -1,11 +1,10 @@
----js
-const eleventyNavigation = {
-	key: "Archive",
-	order: 2
-};
+---
+eleventyNavigation:
+  key: Blog
+  order: 2
 ---
 
-<h1>Archive</h1>
+# Blog
 
 {% set postslist = collections.posts %}
 {% include "partials/content/postslist.njk" %}

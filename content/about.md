@@ -1,13 +1,10 @@
 ---
+title: About Me
 eleventyNavigation:
-  key: About
-  order: 3
+  key: About Me
+  order: 5
 ---
 
-# About
+# About Me
 
-## Blah
-
-I am a person that writes stuff.
-
-[Google](https://google.com)
+Write your bio here.

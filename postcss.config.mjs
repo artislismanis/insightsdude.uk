@@ -20,6 +20,4 @@ const themer = createThemerProject({
 	projectRoot: __dirname,
 });
 
-export default await createPostcssConfig(
-	themer.postcssOptions({ userPlugins: [] }),
-);
+export default await createPostcssConfig(themer.postcssOptions({ userPlugins: [] }));

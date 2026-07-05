@@ -20,8 +20,7 @@ export default defineSiteData({
 	title: 'insightsdude.uk',
 	url: 'https://insightsdude.uk/',
 	language: 'en',
-	// TODO: replace with your own site tagline.
-	description: 'I am writing about my experiences as a naval navel-gazer.',
+	description: 'Connecting the dots, unlocking value.',
 	author: {
 		name: 'Artis Lismanis',
 		email: 'artis@lismanis.uk',
@@ -29,13 +28,19 @@ export default defineSiteData({
 	},
 
 	// First year of publication — drives the footer copyright range.
-	startYear: 2024,
+	startYear: 2026,
 	// Source repository — the footer git-sha links commits here.
 	repository: 'https://github.com/artislismanis/insightsdude.uk',
 	feedUrl: '/feed.xml',
 
 	branding: {
 		favicon: '/favicon.svg',
+		// Header logo. Priority: `logo` (image URL) > `wordmark` (styled text)
+		// > `site.title`. `wordmark.accent` is the first substring of the text
+		// to highlight (rendered in <span class="logo-accent">).
+		wordmark: { text: 'insightsdude.uk', accent: '.' },
+		// Tagline under the logo: `true` uses `site.description`, or pass a string.
+		tagline: 'landing insight where it counts',
 	},
 
 	// Capability toggles (site intent). The active theme declares what it can
@@ -49,6 +54,11 @@ export default defineSiteData({
 	// Social links. Provide `account` (expanded via the platform table) or an
 	// explicit `url`. Rendered as brand icons, falling back to text labels.
 	social: [
+		{
+			platform: 'linkedin',
+			url: 'https://www.linkedin.com/in/artislismanis/',
+			label: 'LinkedIn',
+		},
 		{
 			platform: 'github',
 			url: 'https://github.com/artislismanis',

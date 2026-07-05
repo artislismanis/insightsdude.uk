@@ -1,5 +1,2 @@
-// Main entry point for the site
-// Theme auto-imports styles and scripts - no manual imports needed
-
-// Add site-specific global JavaScript here
-console.log('Site loaded');
+// Site entry point. The themer auto-imports the theme's styles and scripts;
+// add any site-specific global JavaScript here.

@@ -86,47 +86,7 @@ export const OUTPUT_DIR = '_site';
  * @see node_modules/eleventy-theme-aurora/theme.json
  *      for all the presentation keys and shapes the active theme supports.
  */
-export default defineThemeConfig({
-	// --- Theme toggle ---------------------------------------------------------
-	// Controls dark/light mode behaviour. `defaultTheme` is the initial mode
-	// before any user preference; `showToggle` controls whether the header
-	// button is rendered.
-	themeToggle: {
-		defaultTheme: 'auto', // 'auto' | 'light' | 'dark'
-		showToggle: true,
-	},
-
-	// --- Footer (presentation) ------------------------------------------------
-	// `{year}` and `{site.title}` are interpolated by the theme's
-	// footer/copyright.njk partial. The footer's *data* — start year and
-	// repository URL — lives in content/_data/site.mjs, not here.
-	footer: {
-		copyright: ' © {year} {site.title}',
-	},
-
-	// --- Other commonly-overridden sections (uncomment to use) ---------------
-	//
-	// Theme-agnostic *data* (social links, analytics IDs, comments, branding)
-	// now lives in content/_data/site.mjs. The sections below are presentation
-	// and stay theme-side.
-	//
-	// colors: {
-	//   light: { primary: '#172c51', accent: '#ca7033' },
-	//   dark:  { primary: '#5b9bd5', accent: '#ca7033' },
-	// },
-	//
-	// typography: {
-	//   fontFamily: 'system-ui, sans-serif',
-	//   fontFamilyHeading: 'inherit',
-	// },
-	//
-	// codeHighlighting: {
-	//   prismTheme: 'prism-tomorrow',
-	//   diffHighlight: true,
-	// },
-	//
-	// navigation: {
-	//   showHomeLink: true,
-	//   pagination: { enabled: true, pageSize: 10 },
-	// },
-});
+// Empty: the palette, footer format, and toggle defaults this site used to set
+// here now ship as aurora's own defaults (v0.3.0+). Add presentation overrides
+// back only to diverge from the theme.
+export default defineThemeConfig({});
