@@ -4,8 +4,9 @@ eleventyNavigation:
   key: My Superpowers
   order: 4
 ---
+
 {#- Each entry: `tag` is the post tag (and /tags/<tag>/ slug), `title` + `blurb`
-    are the card copy. Replace these with your own core skills. -#}
+are the card copy. Replace these with your own core skills. -#}
 {%- set skills = [
 	{ tag: "data-strategy", title: "Data Strategy", blurb: "Turning messy data landscapes into clear, confident decisions." },
 	{ tag: "analytics", title: "Analytics & Measurement", blurb: "Defining the handful of metrics that actually move the needle." },

@@ -1,95 +1,95 @@
 {
-  "name": "insightsdude.uk",
-  "version": "0.0.1",
-  "description": "insightsdude.uk — personal site built on eleventy-theme-aurora.",
-  "type": "module",
-  "scripts": {
-    "dev": "eleventy --serve",
-    "build": "npm run clean && eleventy",
-    "serve": "serve _site",
-    "format": "prettier --write .",
-    "lint:js": "cross-env DEBUG=eslint:eslint-helpers eslint",
-    "lint:css": "stylelint --allow-empty-input -f verbose \"./overrides/**/*.{css,scss}\"",
-    "lint:md": "markdownlint-cli2",
-    "lint:md:fix": "markdownlint-cli2 --fix",
-    "lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "clean": "del-cli '_site' '.11ty-vite'",
-    "lighthouse": "serve _site -p 9999 & sleep 2 && unlighthouse --site http://localhost:9999 && kill %1",
-    "deploy": "node scripts/deploy.mjs",
-    "deploy:dry": "node scripts/deploy.mjs --dry-run",
-    "deploy:force": "node scripts/deploy.mjs --force",
-    "deploy:s3-only": "node scripts/deploy.mjs --skip-amplify"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/artislismanis/eleventy-starter.git"
-  },
-  "keywords": [
-    "11ty",
-    "vite",
-    "static site generator"
-  ],
-  "author": "Artis Lismanis",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/artislismanis/eleventy-starter/issues"
-  },
-  "homepage": "https://github.com/artislismanis/eleventy-starter#readme",
-  "engines": {
-    "node": ">=24"
-  },
-  "dependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-img": "^6.0.4",
-    "@11ty/eleventy-navigation": "^1.0.4",
-    "@11ty/eleventy-plugin-rss": "^2.0.4",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "@11ty/eleventy-plugin-vite": "^7.0.0",
-    "@aws-sdk/client-amplify": "^3.958.0",
-    "@aws-sdk/client-s3": "^3.958.0",
-    "@eleventy-plugin-themer/build-vite": "^0.4.3",
-    "@eleventy-plugin-themer/core": "^0.4.3",
-    "cross-env": "^10.0.0",
-    "cssnano": "^7.1.2",
-    "del-cli": "^7.0.0",
-    "dotenv": "^17.2.3",
-    "eleventy-theme-aurora": "https://github.com/artislismanis/eleventy-theme-aurora/archive/refs/tags/v0.3.16.tar.gz",
-    "eslint": "^9.36.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-promise": "^7.2.1",
-    "git-branch": "^1.0.0",
-    "globals": "^16.4.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.0",
-    "markdownlint": "^0.38.0",
-    "markdownlint-cli2": "^0.19.1",
-    "postcss": "^8.5.6",
-    "postcss-preset-env": "^10.4.0",
-    "postcss-scss": "^4.0.9",
-    "prettier": "^3.6.2",
-    "prettier-plugin-jinja-template": "^2.1.0",
-    "s3-sync-client": "^4.3.1",
-    "sass-embedded": "^1.93.0",
-    "serve": "^14.2.5",
-    "stylelint": "^16.24.0",
-    "stylelint-config-standard-scss": "^16.0.0",
-    "stylelint-scss": "^6.12.1",
-    "unlighthouse": "^0.17.4",
-    "vite": "^7.1.7"
-  },
-  "devDependencies": {
-    "gray-matter": "^4.0.3",
-    "vitest": "^4.1.5",
-    "zod": "^4.1.11"
-  },
-  "overrides": {
-    "esbuild": "^0.28.1",
-    "markdownlint-cli2": {
-      "js-yaml": "^4.3.1",
-      "markdown-it": "^14.2.0"
-    }
-  }
+	"name": "insightsdude.uk",
+	"version": "0.0.1",
+	"description": "insightsdude.uk — personal site built on eleventy-theme-aurora.",
+	"type": "module",
+	"scripts": {
+		"dev": "eleventy --serve",
+		"build": "npm run clean && eleventy",
+		"serve": "serve _site",
+		"format": "prettier --write .",
+		"lint:js": "cross-env DEBUG=eslint:eslint-helpers eslint",
+		"lint:css": "stylelint --allow-empty-input -f verbose \"./overrides/**/*.{css,scss}\"",
+		"lint:md": "markdownlint-cli2",
+		"lint:md:fix": "markdownlint-cli2 --fix",
+		"lint": "npm run format && npm run lint:js && npm run lint:css && npm run lint:md",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"clean": "del-cli '_site' '.11ty-vite'",
+		"lighthouse": "serve _site -p 9999 & sleep 2 && unlighthouse --site http://localhost:9999 && kill %1",
+		"deploy": "node scripts/deploy.mjs",
+		"deploy:dry": "node scripts/deploy.mjs --dry-run",
+		"deploy:force": "node scripts/deploy.mjs --force",
+		"deploy:s3-only": "node scripts/deploy.mjs --skip-amplify"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/artislismanis/eleventy-starter.git"
+	},
+	"keywords": [
+		"11ty",
+		"vite",
+		"static site generator"
+	],
+	"author": "Artis Lismanis",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/artislismanis/eleventy-starter/issues"
+	},
+	"homepage": "https://github.com/artislismanis/eleventy-starter#readme",
+	"engines": {
+		"node": ">=24"
+	},
+	"dependencies": {
+		"@11ty/eleventy": "^3.1.2",
+		"@11ty/eleventy-img": "^6.0.4",
+		"@11ty/eleventy-navigation": "^1.0.4",
+		"@11ty/eleventy-plugin-rss": "^2.0.4",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+		"@11ty/eleventy-plugin-vite": "^7.0.0",
+		"@aws-sdk/client-amplify": "^3.958.0",
+		"@aws-sdk/client-s3": "^3.958.0",
+		"@eleventy-plugin-themer/build-vite": "^0.4.3",
+		"@eleventy-plugin-themer/core": "^0.4.3",
+		"cross-env": "^10.0.0",
+		"cssnano": "^7.1.2",
+		"del-cli": "^7.0.0",
+		"dotenv": "^17.2.3",
+		"eleventy-theme-aurora": "https://github.com/artislismanis/eleventy-theme-aurora/archive/refs/tags/v0.3.16.tar.gz",
+		"eslint": "^9.36.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-promise": "^7.2.1",
+		"git-branch": "^1.0.0",
+		"globals": "^16.4.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.0",
+		"markdownlint": "^0.38.0",
+		"markdownlint-cli2": "^0.19.1",
+		"postcss": "^8.5.6",
+		"postcss-preset-env": "^10.4.0",
+		"postcss-scss": "^4.0.9",
+		"prettier": "^3.6.2",
+		"prettier-plugin-jinja-template": "^2.1.0",
+		"s3-sync-client": "^4.3.1",
+		"sass-embedded": "^1.93.0",
+		"serve": "^14.2.5",
+		"stylelint": "^16.24.0",
+		"stylelint-config-standard-scss": "^16.0.0",
+		"stylelint-scss": "^6.12.1",
+		"unlighthouse": "^0.17.4",
+		"vite": "^7.1.7"
+	},
+	"devDependencies": {
+		"gray-matter": "^4.0.3",
+		"vitest": "^4.1.5",
+		"zod": "^4.1.11"
+	},
+	"overrides": {
+		"esbuild": "^0.28.1",
+		"markdownlint-cli2": {
+			"js-yaml": "^4.3.1",
+			"markdown-it": "^14.2.0"
+		}
+	}
 }

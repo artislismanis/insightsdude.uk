@@ -1,5 +1,5 @@
 {#- No `eleventyNavigation` here: the theme renders the Home link itself
-    (navigation.showHomeLink). Adding one would duplicate it in the nav. -#}
+(navigation.showHomeLink). Adding one would duplicate it in the nav. -#}
 {%- set numberOfLatestPostsToShow = 3 -%}
 {%- set postsCount = collections.posts | length -%}
 {%- set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) -%}
