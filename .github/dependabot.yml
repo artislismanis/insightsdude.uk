@@ -1,0 +1,77 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Europe/London
+    open-pull-requests-limit: 5
+    versioning-strategy: increase
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      # One PR for the whole lint/format/test toolchain.
+      toolchain:
+        patterns:
+          - eslint
+          - eslint-*
+          - '@eslint/*'
+          - prettier
+          - prettier-*
+          - stylelint
+          - stylelint-*
+          - markdownlint
+          - markdownlint-*
+          - husky
+          - lint-staged
+          - vitest
+          - '@vitest/*'
+          - unlighthouse
+        update-types: [minor, patch]
+      eleventy:
+        patterns:
+          - '@11ty/*'
+          - '@eleventy-plugin-themer/*'
+          - eleventy-theme-aurora
+        update-types: [minor, patch]
+      build:
+        patterns:
+          - vite
+          - postcss
+          - postcss-*
+          - cssnano
+          - sass-embedded
+          - esbuild
+        update-types: [minor, patch]
+      aws:
+        patterns:
+          - '@aws-sdk/*'
+          - s3-sync-client
+        update-types: [minor, patch]
+      theme:
+        patterns:
+          - eleventy-theme-aurora
+        update-types: [minor, patch]
+      # Catch-all so nothing lands as a solo PR unless it's a major.
+      remaining-minor-patch:
+        patterns: ['*']
+        update-types: [minor, patch]
+    # Majors stay ungrouped and arrive one at a time, on purpose.
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Europe/London
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns: ['*']
