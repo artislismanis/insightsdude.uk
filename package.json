@@ -90,6 +90,7 @@
 		"markdownlint-cli2": {
 			"js-yaml": "^4.3.1",
 			"markdown-it": "^14.2.0"
-		}
+		},
+		"@puppeteer/browsers": "^3.2.1"
 	}
 }
