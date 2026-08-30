@@ -56,7 +56,7 @@
 		"del-cli": "^7.0.0",
 		"dotenv": "^17.2.3",
 		"eleventy-theme-aurora": "https://github.com/artislismanis/eleventy-theme-aurora/archive/refs/tags/v0.3.18.tar.gz",
-		"eslint": "^9.36.0",
+		"eslint": "^10.9.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-import": "^2.32.0",
 		"eslint-plugin-promise": "^7.2.1",
