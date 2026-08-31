@@ -11,3 +11,6 @@ _site/
 .unlighthouse
 # AI tools (local)
 .claude/
+
+# Vite build temp
+.11ty-vite/

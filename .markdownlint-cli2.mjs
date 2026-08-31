@@ -1,7 +1,7 @@
 // markdownlint-cli2 config
 // https://github.com/DavidAnson/markdownlint-cli2?tab=readme-ov-file#markdownlint-cli2jsonc
 export default {
-	globs: ['./content/**/*.{md,markdown}', './docs/**/*.md', './*.md'],
+	globs: ['./content/**/*.{md,markdown}', './*.md'],
 	ignores: [
 		'./.husky/**',
 		'./_site/**',
@@ -23,8 +23,7 @@ export default {
 		// <h1>, the one in the body. Clearing the pattern stops the false match.
 		MD025: { front_matter_title: '' },
 		// 'first-line-heading'. Content files legitimately open with a Nunjucks
-		// comment or `set` block before their heading (content/index.md), and
-		// CLAUDE.md is an `@AGENTS.md` include pointer.
+		// comment or `set` block before their heading (content/index.md).
 		MD041: false,
 		// 'no-hard-tabs'. Nunjucks blocks embedded in Markdown follow the
 		// project's tab indentation (.editorconfig), which this rule can't scope
