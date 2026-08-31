@@ -7,7 +7,7 @@ eleventyNavigation:
 
 # About Me
 
-Hi, I'm Artis. If you've landed here, you're probably curious who's behind the writing, so here's the short version.
+Hi, I'm Artis. Here's the short version of who you're reading.
 
 I'm a UK-based data leader, and I connect technical data work to business value.
 
