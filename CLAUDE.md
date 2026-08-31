@@ -81,14 +81,9 @@ The default export is currently empty (`defineThemeConfig({})`): the palette, fo
 
 ### Overriding a layout, style, script, or feature
 
-Place the file at the matching path under `overrides/`. The plugin's cascade picks the override automatically. No registration needed.
+Place the file at the matching path under `overrides/`. The plugin's cascade picks the override automatically — no registration needed.
 
-| Override           | Path                                                        |
-| ------------------ | ----------------------------------------------------------- |
-| Layout             | `overrides/layouts/<name>.njk`                              |
-| Style              | `overrides/styles/<name>.scss`                              |
-| Feature            | `overrides/features/<name>/index.js` (or `index.auto.js`)   |
-| Filter / shortcode | `overrides/lib/filters.mjs`, `overrides/lib/shortcodes.mjs` |
+**`overrides/README.md` is the reference** for the paths and the resolution rules for each resource type. It sits next to the thing it describes, so read it there rather than trusting a copy here. `theme.config.mjs` carries a shorter version of the same list in its header comment.
 
 ### Build optimizations
 
@@ -122,8 +117,6 @@ PurgeCSS safelist patterns merge from three layers — see `README.md` for the m
 | `theme.config.mjs`                    | Theme constants + presentation overrides (validated vs schema)                    |
 | `content/_data/site.mjs`              | Site identity + theme-agnostic data (social/analytics/branding/comments/features) |
 | `content/_data/eleventyDataSchema.js` | Front-matter validation (uses `featuresFrontMatterSchema`)                        |
-| `overrides/lib/filters.mjs`           | Project-specific Nunjucks filters                                                 |
-| `overrides/lib/shortcodes.mjs`        | Project-specific shortcodes                                                       |
 
 ## Conventions
 
