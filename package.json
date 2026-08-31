@@ -4,11 +4,12 @@
 	"description": "insightsdude.uk — personal site built on eleventy-theme-aurora.",
 	"type": "module",
 	"scripts": {
+		"prepare": "husky",
 		"dev": "eleventy --serve",
 		"build": "npm run clean && eleventy",
 		"serve": "serve _site",
 		"format": "prettier --write .",
-		"lint:js": "cross-env DEBUG=eslint:eslint-helpers eslint",
+		"lint:js": "eslint && echo \"✓ ESLint: no problems\"",
 		"lint:css": "stylelint --allow-empty-input -f verbose \"./overrides/**/*.{css,scss}\"",
 		"lint:md": "markdownlint-cli2",
 		"lint:md:fix": "markdownlint-cli2 --fix",
@@ -24,7 +25,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/artislismanis/eleventy-starter.git"
+		"url": "git+https://github.com/artislismanis/insightsdude.uk.git"
 	},
 	"keywords": [
 		"11ty",
@@ -34,9 +35,9 @@
 	"author": "Artis Lismanis",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/artislismanis/eleventy-starter/issues"
+		"url": "https://github.com/artislismanis/insightsdude.uk/issues"
 	},
-	"homepage": "https://github.com/artislismanis/eleventy-starter#readme",
+	"homepage": "https://github.com/artislismanis/insightsdude.uk#readme",
 	"engines": {
 		"node": ">=24"
 	},
@@ -51,7 +52,6 @@
 		"@aws-sdk/client-s3": "^3.1120.0",
 		"@eleventy-plugin-themer/build-vite": "^0.5.0",
 		"@eleventy-plugin-themer/core": "^0.4.3",
-		"cross-env": "^10.0.0",
 		"cssnano": "^9.0.0",
 		"del-cli": "^7.0.0",
 		"dotenv": "^17.2.3",

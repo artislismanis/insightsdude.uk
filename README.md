@@ -2,7 +2,9 @@
 
 The source for [insightsdude.uk](https://insightsdude.uk) — a personal blog built with [Eleventy](https://www.11ty.dev/), the `@eleventy-plugin-themer` framework, and the `eleventy-theme-aurora` theme.
 
-This repo owns **content and delivery**: pages and posts under `content/`, theme overrides under `overrides/`, and the AWS deployment. The theme (`../theme-aurora`) owns the visual design; the plugin is treated as a black box. The working model is to iterate on look-and-feel here via the override cascade, then promote anything reusable up into the aurora theme. For framework internals (cascade resolution, override discovery, security model), see the plugin's own `README.md` / `CLAUDE.md`.
+This repo owns **content and delivery**: pages and posts under `content/`, theme overrides under `overrides/`, and the AWS deployment. The theme owns the visual design; the plugin is treated as a black box. The working model is to iterate on look-and-feel here via the override cascade, then promote anything reusable up into the aurora theme. For framework internals (cascade resolution, override discovery, security model), see the plugin's own `README.md` / `CLAUDE.md`.
+
+The two dependencies resolve differently: `@eleventy-plugin-themer/core` and `/build-vite` come from **npm** on semver ranges, while `eleventy-theme-aurora` is a **GitHub release tarball** pinned to a tag — it is not published to npm. See `CLAUDE.md` for the local-iteration (`npm link`) workflow.
 
 ## Getting Started
 
@@ -20,6 +22,7 @@ npm run build   # Production build
 | `npm run build`      | Clean and build for production                               |
 | `npm run serve`      | Serve the built `_site` directory                            |
 | `npm run lint`       | Run all linters (Prettier, ESLint, Stylelint, markdownlint)  |
+| `npm test`           | Run the Vitest suite (builds the site first)                 |
 | `npm run lighthouse` | Run Lighthouse audit on the built site                       |
 | `npm run deploy`     | Deploy to AWS (S3 + Amplify) — see [Deployment](#deployment) |
 
@@ -37,6 +40,8 @@ overrides/         # Theme overrides
   features/        # Custom feature overrides
   lib/             # User filters and shortcodes
 public/            # Static assets (copied as-is)
+__tests__/         # Vitest suite (build smoke, schema, output sanity, wiring)
+scripts/           # deploy.mjs (S3 + Amplify)
 ```
 
 ## Configuration
@@ -64,13 +69,13 @@ Plus build/infra config that is not "site content":
 
 Ask, in order:
 
-1. **Would it still be true if you switched themes?** → `site.js` (it's a fact about the site).
+1. **Would it still be true if you switched themes?** → `site.mjs` (it's a fact about the site).
 2. **Is it about how the theme renders or behaves?** → `theme.config.mjs` (validated against the theme's schema — a typo fails the build).
 3. **Is it build/deploy infra or a secret?** → `eleventy.config.mjs` / `.env`.
 
 ### Don't duplicate — cross-reference with tokens
 
-Values live in **one** home and are referenced elsewhere by token, never copied. The footer already demonstrates this: `theme.config.mjs` sets `copyright: '© {year} {site.title}'`, and the theme interpolates `{site.title}` from `site.js` at render time. Follow this pattern; don't paste the title into both files.
+Values live in **one** home and are referenced elsewhere by token, never copied. The footer already demonstrates this: `theme.config.mjs` sets `copyright: '© {year} {site.title}'`, and the theme interpolates `{site.title}` from `site.mjs` at render time. Follow this pattern; don't paste the title into both files.
 
 Known single-source-of-truth points to keep in sync manually (no token bridge yet):
 
@@ -82,17 +87,15 @@ Known single-source-of-truth points to keep in sync manually (no token bridge ye
 **`content/_data/site.mjs`** (identity + data)
 
 - [x] `title`, `url`, `language`, `author.name` / `email` / `url`
-- [x] `social` (GitHub + RSS), `startYear`, `repository`, `feedUrl`, `features`
-- [ ] `description` — still a placeholder; drives both `<meta description>` and the feed subtitle
-- [ ] `analytics` — empty; add Google Analytics / Plausible if wanted
-- [ ] `branding.favicon` — see favicon note below
-- [ ] `comments` — off (`provider: 'none'`); set `disqus.shortname` to enable
+- [x] `social` (LinkedIn + GitHub + RSS), `startYear`, `repository`, `feedUrl`, `features`
+- [x] `description` — drives both `<meta description>` and the feed subtitle
+- [ ] `analytics` — commented out; add Google Analytics / Plausible if wanted
+- [x] `branding.favicon` — set to `/favicon.svg`; see favicon note below
+- [ ] `comments` — commented out; uncomment and set `disqus.shortname` to enable
 
 **`theme.config.mjs`** (presentation)
 
-- [x] `footer` copyright format, `themeToggle`
-- [ ] `colors` — commented out → using aurora defaults (wine accent `#9b3b54`); set if branding
-- [ ] `typography` — using defaults
+The default export is empty (`defineThemeConfig({})`) — footer format, toggles, colours (wine accent `#9b3b54`) and typography all come from aurora's own defaults. Add keys only to diverge.
 
 **`public/`**
 
@@ -128,7 +131,7 @@ The production build runs PurgeCSS to remove unused CSS. The safelist (patterns 
 2. **Theme** -- declared in the theme's `theme.json` under `build.purgeCSS.safelist`
 3. **Site config** -- declared in `eleventy.config.mjs` (this repo)
 
-Layers 2 and 3 follow the framework's general merge rule: theme array entries come first and the site appends (deduped). Object keys: site wins. See the [build-vite optimization merge docs](../../node_modules/@eleventy-plugin-themer/build-vite/README.md#how-optimizations-merges-with-themejsonbuild) for the full rule.
+Layers 2 and 3 follow the framework's general merge rule: theme array entries come first and the site appends (deduped). Object keys: site wins. See the [build-vite optimization merge docs](node_modules/@eleventy-plugin-themer/build-vite/README.md#how-optimizations-merges-with-themejsonbuild) for the full rule.
 
 If you add a feature that uses CSS selectors applied dynamically via JavaScript (not present in the static HTML), you need to safelist those patterns. Pass an object to `purgeCSS` instead of `true`:
 
@@ -171,4 +174,4 @@ npm run deploy:dry   # show what would change, no writes
 npm run deploy:force # bypass the main-branch gate
 ```
 
-Configure the required credentials and identifiers in `.env` (see `.env.example`): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `S3_BUCKET`, `AMPLIFY_APP_ID`, `AMPLIFY_BRANCH_NAME`. One-time bucket/IAM setup is documented in [`docs/aws_setup.md`](docs/aws_setup.md).
+Configure the required credentials and identifiers in `.env` (see `.env.example`): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `S3_BUCKET`, `AMPLIFY_APP_ID`, `AMPLIFY_BRANCH_NAME`.
