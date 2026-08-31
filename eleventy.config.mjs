@@ -91,7 +91,13 @@ export default async function (eleventyConfig) {
 		themer.viteOptions({
 			optimizations: {
 				purgeCSS: true,
-				criticalCSS: true,
+				// allowRules: Beasties keeps a rule only if its selector carries a
+				// tag/class/id it can find in the page. The dark-mode custom-property
+				// bridges (`:root[data-theme=dark]`, `:root:not([data-theme=light])`)
+				// carry none, so they were dropped from the inlined critical CSS and
+				// only arrived with the deferred stylesheet: first paint was light,
+				// then flipped to dark.
+				criticalCSS: { allowRules: [/data-theme/] },
 				minifyHTML: true,
 				// preserveNonHtml MUST run before validateLinks so restored files
 				// (feed.xml, sitemap.xml, robots.txt) exist when links are checked.
