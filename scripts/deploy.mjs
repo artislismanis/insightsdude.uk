@@ -161,14 +161,17 @@ const syncToS3 = async () => {
 		dryRun: config.dryRun,
 	});
 
-	const created = result.created ?? [];
+	// `created` is new keys only; a file that keeps its name (every .html) comes
+	// back under `updated`. Ignoring it under-reported the diff and, worse, left
+	// hasChanges false on content-only deploys, so Amplify was skipped.
+	const uploaded = [...(result.created ?? []), ...(result.updated ?? [])];
 	const deleted = result.deleted ?? [];
-	const uploadCount = created.length;
+	const uploadCount = uploaded.length;
 	const deleteCount = deleted.length;
 
 	if (uploadCount > 0) {
 		log.info('  Uploaded:');
-		created.forEach((item) => log.info(`    ✓ ${item.id}`));
+		uploaded.forEach((item) => log.info(`    ✓ ${item.id}`));
 	}
 
 	if (deleteCount > 0) {
