@@ -42,15 +42,33 @@ function walk(dir) {
 const themeMetadata = resolveThemeMetadata(projectRoot, THEME_NAME);
 const featuresSchema = featuresFrontMatterSchema(projectRoot, themeMetadata);
 
+// Eleventy resolves these to a real date at build time (Template.js), so raw
+// front-matter can hold a string that `z.coerce.date()` would reject.
+const ELEVENTY_DATE_KEYWORDS = [
+	'last modified',
+	'created',
+	'git last modified',
+	'git created',
+];
+
 // Note: this schema runs against raw front-matter, so `tags` accepts either
-// a scalar or an array. The runtime schema in `content/_data/eleventyDataSchema.js`
-// runs *after* Eleventy normalises scalar tags, so it only needs `array(string)`.
+// a scalar or an array and `date` accepts Eleventy's keywords. The runtime schema
+// in `content/_data/eleventyDataSchema.js` runs *after* Eleventy normalises scalar
+// tags and resolves dates, so it only needs `array(string)` and a real date.
 // The asymmetry is intentional — keep both in sync if you change either.
 const frontMatterSchema = z.object({
 	draft: z.boolean().optional(),
 	features: featuresSchema,
 	tags: z.union([z.string(), z.array(z.string())]).optional(),
-	date: z.coerce.date().optional(),
+	// Keyword branch first: `z.coerce.date()` would swallow it as an Invalid Date.
+	date: z
+		.union([
+			z
+				.string()
+				.refine((s) => ELEVENTY_DATE_KEYWORDS.includes(s.toLowerCase())),
+			z.coerce.date(),
+		])
+		.optional(),
 });
 
 describe('content front-matter', () => {
