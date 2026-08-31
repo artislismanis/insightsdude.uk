@@ -1,8 +1,8 @@
 # Overrides
 
-Theme-shaped customisations. Files placed here win over the theme's defaults via the framework's cascade. Empty directories are intentional scaffolding — drop a file in to override.
+Theme-shaped customisations. Files placed here win over the theme's defaults via the framework's cascade.
 
-Files prefixed with **Example** in the comments are illustrative starting points and safe to delete: `lib/filters.mjs`, `lib/shortcodes.mjs`, `features/example/`. They demonstrate the override mechanism without changing build output.
+Only `scripts/main.js` is present — it is required, see below. Create the other directories as you need them; nothing has to be scaffolded in advance. The table is the reference for where each kind of override goes.
 
 | Directory   | Purpose                                                                                                |
 | ----------- | ------------------------------------------------------------------------------------------------------ |
@@ -50,3 +50,5 @@ SCSS partials placed here are merged into the theme's style cascade. Use the sam
 ### Scripts (`scripts/`)
 
 `scripts/main.js` is the project's main client JS entry point; the build adapter bundles it with all discovered features.
+
+**It is required, even when empty.** The theme provides no fallback entry: without this file Vite emits no HTML, every post-processing step reports "No files found to process", and the build dies renaming `.11ty-vite` onto a non-empty `_site/`. Keep the file even if it only holds a comment.
