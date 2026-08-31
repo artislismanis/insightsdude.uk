@@ -32,11 +32,13 @@ updates:
           - '@vitest/*'
           - unlighthouse
         update-types: [minor, patch]
+      # `eleventy-theme-aurora` is deliberately absent here: it has its own
+      # `theme` group below, and Dependabot assigns a dependency to the first
+      # group it matches.
       eleventy:
         patterns:
           - '@11ty/*'
           - '@eleventy-plugin-themer/*'
-          - eleventy-theme-aurora
         update-types: [minor, patch]
       build:
         patterns:

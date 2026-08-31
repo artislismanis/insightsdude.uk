@@ -136,6 +136,9 @@ PurgeCSS safelist patterns merge from three layers — see `README.md` for the m
 ## Dependencies & security
 
 - **Node 24 LTS.** `.nvmrc` (`24`), `engines` (`>=24`), the devcontainer image (`javascript-node:24`) and CI (via `.nvmrc`) all track the same major, so the container and CI resolve to the same version.
+- **`dependencies` vs `devDependencies`.** `dependencies` is everything needed to produce `_site/` or ship it: Eleventy and its plugins, themer, aurora, the Vite/PostCSS/Sass chain, `del-cli`, and the deploy path (`@aws-sdk/*`, `s3-sync-client`, `dotenv`, `git-branch`). `devDependencies` is everything only a person working on the repo needs: linters, formatters, Vitest, `husky`, `lint-staged`, `serve`, `unlighthouse`. `npm ci --omit=dev` installs ~259MB against ~805MB for the full tree and still builds the site — keep it that way when adding a package.
+- **`prepare` is `husky || true`** so `npm ci --omit=dev` doesn't fail. npm runs `prepare` on every install, and `husky` isn't there in a production install.
+- **Auditing.** The CI gate deliberately audits the **whole** tree at `--audit-level=high`: dev tooling runs on developer machines and in CI with repo access, so it is in scope. Use `npm audit --omit=dev` as a triage question — "does this advisory reach the built site?" — not as the gate.
 - **`overrides` in `package.json`** force patched versions of vulnerable _transitive_ deps without downgrading the top-level tools (`npm audit fix --force` would roll `unlighthouse` and `markdownlint-cli2` back several minor versions — worse than the bug). Current overrides:
   - `esbuild ^0.28.1` — GHSA-g7r4-m6w7-qqqr (dev-server file read), via `vite`.
   - `markdownlint-cli2 › js-yaml ^4.3.1` and `markdown-it ^14.2.0` — GHSA-h67p-54hq-rp68 / GHSA-38c4-r59v-3vqw (DoS); scoped so only markdownlint's tree moves.
