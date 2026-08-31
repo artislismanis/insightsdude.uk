@@ -65,7 +65,7 @@
 		"vite": "^8.2.2"
 	},
 	"devDependencies": {
-		"eslint": "^9.36.0",
+		"eslint": "^10.9.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-import": "^2.32.0",
 		"eslint-plugin-promise": "^7.2.1",
