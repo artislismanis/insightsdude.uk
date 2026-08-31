@@ -174,4 +174,4 @@ npm run deploy:dry   # show what would change, no writes
 npm run deploy:force # bypass the main-branch gate
 ```
 
-Configure the required credentials and identifiers in `.env` (see `.env.example`): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `S3_BUCKET`, `AMPLIFY_APP_ID`, `AMPLIFY_BRANCH_NAME`.
+Configure the required credentials and identifiers in `.env` (see `.env.example`): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `S3_BUCKET`, `AMPLIFY_APP_ID`, `AMPLIFY_BRANCH_NAME`. The one-time bucket, Amplify app and IAM user can be created with `bash scripts/setup-aws.sh`, which needs the AWS CLI configured with admin credentials plus `jq`.
