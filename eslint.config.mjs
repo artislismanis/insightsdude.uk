@@ -2,7 +2,7 @@
 // https://eslint.org/docs/latest/use/configure/
 import js from '@eslint/js';
 import globals from 'globals';
-import importPlugin from 'eslint-plugin-import';
+import { flatConfigs as importXConfigs } from 'eslint-plugin-import-x';
 import promisePlugin from 'eslint-plugin-promise';
 import prettierConfig from 'eslint-config-prettier';
 
@@ -20,7 +20,7 @@ export default [
 	},
 
 	js.configs.recommended,
-	importPlugin.flatConfigs.recommended,
+	importXConfigs.recommended,
 	promisePlugin.configs['flat/recommended'],
 
 	// All JS/MJS files: shared parser + base rules
@@ -32,7 +32,7 @@ export default [
 			globals: { ...globals.es2022 },
 		},
 		rules: {
-			'import/order': ['error', { 'newlines-between': 'always' }],
+			'import-x/order': ['error', { 'newlines-between': 'always' }],
 			'no-unused-vars': [
 				'error',
 				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
@@ -55,7 +55,7 @@ export default [
 		files: ['overrides/scripts/**/*.js', 'overrides/features/**/*.js'],
 		languageOptions: { globals: { ...globals.browser } },
 		rules: {
-			'import/no-unresolved': ['error', { ignore: ['^virtual:'] }],
+			'import-x/no-unresolved': ['error', { ignore: ['^virtual:'] }],
 		},
 	},
 
@@ -70,7 +70,7 @@ export default [
 		files: ['**/*.config.mjs', '.markdownlint-cli2.mjs'],
 		languageOptions: { globals: { ...globals.node } },
 		rules: {
-			'import/no-unresolved': ['error', { ignore: ['^vitest/'] }],
+			'import-x/no-unresolved': ['error', { ignore: ['^vitest/'] }],
 		},
 	},
 
