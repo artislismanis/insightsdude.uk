@@ -91,7 +91,8 @@
 		"esbuild": "^0.28.1",
 		"markdownlint-cli2": {
 			"js-yaml": "^4.3.1",
-			"markdown-it": "^14.2.0"
+			"markdown-it": "^14.2.0",
+			"smol-toml": "^1.8.0"
 		},
 		"@puppeteer/browsers": "^3.2.1",
 		"micromatch": "^4.0.8"
