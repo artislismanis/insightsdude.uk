@@ -55,7 +55,7 @@
 		"cssnano": "^9.0.4",
 		"del-cli": "^7.0.0",
 		"dotenv": "^17.2.3",
-		"eleventy-theme-aurora": "https://github.com/artislismanis/eleventy-theme-aurora/archive/refs/tags/v0.3.18.tar.gz",
+		"eleventy-theme-aurora": "^0.3.20",
 		"git-branch": "^2.0.1",
 		"postcss": "^8.5.28",
 		"postcss-preset-env": "^11.5.2",
