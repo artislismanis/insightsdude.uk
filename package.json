@@ -52,7 +52,7 @@
 		"@aws-sdk/client-s3": "^3.1134.0",
 		"@eleventy-plugin-themer/build-vite": "^0.5.0",
 		"@eleventy-plugin-themer/core": "^0.4.3",
-		"cssnano": "^9.0.4",
+		"cssnano": "^9.1.0",
 		"del-cli": "^7.0.0",
 		"dotenv": "^17.2.3",
 		"eleventy-theme-aurora": "^0.3.20",
@@ -61,7 +61,7 @@
 		"postcss-preset-env": "^11.5.2",
 		"postcss-scss": "^4.0.9",
 		"s3-sync-client": "^4.3.1",
-		"sass-embedded": "^1.104.0",
+		"sass-embedded": "^1.105.0",
 		"vite": "^8.3.0"
 	},
 	"devDependencies": {
