@@ -51,7 +51,7 @@
 		"@aws-sdk/client-amplify": "^3.1134.0",
 		"@aws-sdk/client-s3": "^3.1134.0",
 		"@eleventy-plugin-themer/build-vite": "^0.5.0",
-		"@eleventy-plugin-themer/core": "^0.4.3",
+		"@eleventy-plugin-themer/core": "^0.5.1",
 		"cssnano": "^9.0.4",
 		"del-cli": "^7.0.0",
 		"dotenv": "^17.2.3",
