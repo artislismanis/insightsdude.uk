@@ -54,7 +54,7 @@
 		"@eleventy-plugin-themer/core": "^0.4.3",
 		"cssnano": "^9.0.4",
 		"del-cli": "^7.0.0",
-		"dotenv": "^17.2.3",
+		"dotenv": "^18.0.4",
 		"eleventy-theme-aurora": "^0.3.20",
 		"git-branch": "^2.0.1",
 		"postcss": "^8.5.28",
